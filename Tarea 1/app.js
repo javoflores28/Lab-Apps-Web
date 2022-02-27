@@ -5,7 +5,7 @@ const readline = require('readline').createInterface({
     output: process.stdout
   });
 
-let operators = () => {
+let operations = () => {
     readline.question('Select the operation ( + - * / %): ', 
     function (selection) {
         readline.question('Select the first number: ',
@@ -37,4 +37,4 @@ let operators = () => {
         }) 
     })
 };
-operators();
+operations();
