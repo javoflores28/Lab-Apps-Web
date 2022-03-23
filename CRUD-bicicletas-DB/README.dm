@@ -1,6 +1,6 @@
-# Tarea 2
+#Tarea 2
 
-## Almacenando las bicicletas en una DB
+##Almacenando las bicicletas en una DB
 Javier Arturo Flores Zavala / A01651678
 
 Realiza los cambios necesarios a nuestro proyecto de la red de bicicletas para que almacene la información en una base de datos.
