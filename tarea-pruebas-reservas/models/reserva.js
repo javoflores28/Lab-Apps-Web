@@ -23,7 +23,7 @@ reservaSchema.statics.add = function (aReserva, cb) {
 }
 
 reservaSchema.methods.diasDeReserva = function() {
-    return moment(this.Fin).diff(moment(this.Inicio), 'days') + 1
+    return moment(this.hasta).diff(moment(this.desde), 'days') + 1
 }
 
 

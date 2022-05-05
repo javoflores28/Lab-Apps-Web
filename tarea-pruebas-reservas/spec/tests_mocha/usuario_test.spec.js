@@ -1,3 +1,4 @@
+const { isReadStream } = require('request/lib/helpers')
 const mongoose = require('mongoose')
 const Bicicleta = require('../../models/bicicleta')
 const Usuario = require('../../models/usuario')
@@ -47,10 +48,10 @@ describe('Testing usuarios', function(){
             usuario.reservar(bicicleta.id, hoy, mañana, function(err, reserva){
                 Reserva.find({}).populate('bicicleta').populate('usuario').exec(function(err, reservas){
                     //console.log(reservas[0])
-                    expect(reservas.length).to.be.eq(1)
-                    expect(reservas[0].diasDeReserva()).to.be.eq(2)
-                    expect(reservas[0].bicicleta.code).to.be.eq(1)
-                    expect(reservas[0].usuario.nombre).to.be.eq(usuario.nombre)
+                    expect(reservas.length).to.equal(1)
+                    expect(reservas[0].diasDeReserva()).to.equal(2)
+                    expect(reservas[0].bicicleta.code).to.equal(1)
+                    expect(reservas[0].usuario.nombre).to.equal(usuario.nombre)
                     done()
                 })
             })
