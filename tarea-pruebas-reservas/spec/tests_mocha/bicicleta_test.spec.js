@@ -63,28 +63,28 @@ describe('Testing bicicletas', function(){
         })
     })
 
+
     //Find by code
     describe('Find a bike by its code', ()=>{
-        it('There should not be any bike instance', (done)=>{
+        it('should return bike with code 1', (done)=>{
             Bicicleta.allBicis(function(err, bicis){
                 expect(bicis.length).to.be.eq(0)
-                done()
-            })
-        })
-        it('Should return bike with code 1', (done)=>{
-            let bici = new Bicicleta({code: 1, color: 'verde', modelo: 'urbana'})
-            Bicicleta.add(bici, function(err, newBike){
-                if(err) console.log(err)
 
-                let bici2 = new Bicicleta({code: 2, color: 'blanca', modelo: 'montaña'})
-                Bicicleta.add(bici2, function(err, newBike){                        
+                let bici = new Bicicleta({code: 1, color: 'verde', modelo: 'urbana'})
+                Bicicleta.add(bici, function(err, newBike){
                     if(err) console.log(err)
 
-                    Bicicleta.findByCode(1, function(err, targetBici){
-                        expect(targetBici.code).to.be.eq(bici.code)
-                        expect(targetBici.color).to.be.eq(bici.color)
-                        expect(targetBici.modelo).to.be.eq(bici.modelo)
-                        done()
+                    let bici2 = new Bicicleta({code: 2, color: 'blanca', modelo: 'montaña'})
+                    Bicicleta.add(bici2, function(err, newBike){                        
+                        if(err) console.log(err)
+
+                        Bicicleta.findByCode(1, function(err, targetBici){
+                            expect(targetBici.code).to.be.eq(bici.code)
+                            expect(targetBici.color).to.be.eq(bici.color)
+                            expect(targetBici.modelo).to.be.eq(bici.modelo)
+
+                            done()
+                        })
                     })
                 })
             })
@@ -94,22 +94,21 @@ describe('Testing bicicletas', function(){
 
     //Remove by code
     describe('Remove a bike by its code', ()=>{
-        it('There should not be any bike instance', (done)=>{
+        it('should delete bike with code 1', (done)=>{
             Bicicleta.allBicis(function(err, bicis){
                 expect(bicis.length).to.be.eq(0)
-                done()
-            })
-        })
-        it('Should delete bike with code 1', (done)=>{
-            let bici = new Bicicleta({code: 1, color: 'verde', modelo: 'urbana'})
-            Bicicleta.add(bici, function(err, newBike){
-                if(err) console.log(err)
-                Bicicleta.allBicis(function(err, bicis){
-                    expect(bicis.length).to.be.eq(1)
-                    Bicicleta.removeByCode(1, function(err, cb){
-                        Bicicleta.allBicis(function(err, bicis){
-                            expect(bicis.length).to.be.eq(0)
-                            done()
+
+                let bici = new Bicicleta({code: 1, color: 'verde', modelo: 'urbana'})
+                Bicicleta.add(bici, function(err, newBike){
+                    if(err) console.log(err)
+                    Bicicleta.allBicis(function(err, bicis){
+                        expect(bicis.length).to.be.eq(1)
+                        Bicicleta.removeByCode(1, function(err, cb){
+                            Bicicleta.allBicis(function(err, bicis){
+                                expect(bicis.length).to.be.eq(0)
+                            
+                                done()
+                            })
                         })
                     })
                 })

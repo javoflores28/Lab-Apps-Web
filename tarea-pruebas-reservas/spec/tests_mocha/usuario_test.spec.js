@@ -36,7 +36,7 @@ describe('Testing usuarios', function(){
     //Reservar una bici
     describe('Un usuario reserva una bici', ()=>{
         it('debe existir la reserva', (done)=>{
-            let usuario = new Usuario({nombre: 'Luis', password: 'miSuperPass1287word', email: 'luis@yo.com'})
+            let usuario = new Usuario({nombre: 'Javier', password: 'password12132', email: 'javier@yo.com'})
             usuario.save()
             let bicicleta = new Bicicleta({code: 1, color: 'verde', modelo: 'urbana'})
             bicicleta.save()
@@ -57,4 +57,3 @@ describe('Testing usuarios', function(){
         })
     }); 
 })
-
