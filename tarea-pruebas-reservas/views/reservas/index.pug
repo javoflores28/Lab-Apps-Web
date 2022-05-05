@@ -1,0 +1,18 @@
+extends ../layout
+
+block content 
+    h1 Listado de reservas de bicicletas por usuario
+    table.table 
+        thead  
+            tr 
+                th ID de la bicicleta
+                th Inicio de la reservación
+                th Final de la reservación
+        tbody 
+            each r in reservas
+                tr
+                    td=r.bicicleta
+                    td=r.desde
+                    td=r.hasta
+    a(href='/') Home
+

@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+    a(href='/') Home
+    br
+    a(href='/reservas') Listado
+    br
+    h1 Nueva reserva 
+    form(action='/reservas/create' method='POST')
+        table.table
+            tr 
+                td
+                    label(for='code') Código de bicicleta:
+                td
+                    input#code(type='number' name='code')
+            tr 
+                td
+                    label(for='desde') Inicio:
+                td
+                    input#desde(type='date' name='desde')
+            tr 
+                td
+                    label(for='hasta') Fin:
+                td
+                    input#hasta(type='date' name='hasta')
+            tr 
+                td 
+                td
+                    input.btn(type='submit' value='Confirmar la reservación')
